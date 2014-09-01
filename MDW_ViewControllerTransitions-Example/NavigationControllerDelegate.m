@@ -8,6 +8,7 @@
 
 #import "NavigationControllerDelegate.h"
 #import "NavigationAnimator.h"
+#import "PushedViewController.h"
 
 @implementation NavigationControllerDelegate
 
@@ -15,15 +16,18 @@
 {
     if (operation == UINavigationControllerOperationPush)
     {
+        PushedViewController *toViewController = (PushedViewController *) toVC;
         NavigationAnimator *animator = [NavigationAnimator new];
         animator.isPushed = YES;
+        animator.transitionStyle = toViewController.pushTransitionStyle;
         return animator;
     }
     
     if (operation == UINavigationControllerOperationPop)
     {
+        PushedViewController *fromViewController = (PushedViewController *) fromVC;
         NavigationAnimator *animator = [NavigationAnimator new];
-        
+        animator.transitionStyle = fromViewController.popTransitionStyle;
         return animator;
     }
     

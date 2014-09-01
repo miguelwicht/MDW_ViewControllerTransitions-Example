@@ -19,6 +19,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.pushTransitionStyle = MDWAnimatorTransitionStyleSlideInFromRight;
+        self.popTransitionStyle = MDWAnimatorTransitionStyleSlideOutToRight;
     }
     return self;
 }

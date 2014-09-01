@@ -51,9 +51,17 @@
     self.pushViewControllerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.pushViewControllerButton setFrame:CGRectMake(0, 141, self.view.frame.size.width, 40)];
     [self.pushViewControllerButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
-    [self.pushViewControllerButton setTitle:@"Push ViewController" forState:UIControlStateNormal];
+    [self.pushViewControllerButton setTitle:@"Push from right" forState:UIControlStateNormal];
     [self.pushViewControllerButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.pushViewControllerButton];
+    
+    
+    self.pushFromTopViewControllerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.pushFromTopViewControllerButton setFrame:CGRectMake(0, 182, self.view.frame.size.width, 40)];
+    [self.pushFromTopViewControllerButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
+    [self.pushFromTopViewControllerButton setTitle:@"Push from top" forState:UIControlStateNormal];
+    [self.pushFromTopViewControllerButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.pushFromTopViewControllerButton];
 }
 
 - (void)buttonPressed:(id)sender
@@ -69,6 +77,13 @@
     else if (sender == self.pushViewControllerButton)
     {
         PushedViewController *viewController = [[PushedViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    else if (sender == self.pushFromTopViewControllerButton)
+    {
+        PushedViewController *viewController = [[PushedViewController alloc] initWithNibName:nil bundle:nil];
+        viewController.pushTransitionStyle = MDWAnimatorTransitionStyleSlideInFromTop;
+        viewController.popTransitionStyle = MDWAnimatorTransitionStyleSlideOutToTop;
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
