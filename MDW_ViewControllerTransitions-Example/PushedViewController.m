@@ -7,6 +7,7 @@
 //
 
 #import "PushedViewController.h"
+#import "AppDelegate.h"
 
 @interface PushedViewController ()
 
@@ -50,6 +51,15 @@
     {
         [self.navigationController popViewControllerAnimated:YES];
     }
+}
+
+#pragma mark - TransitionViewControllerDelegate
+
+- (CGRect)containerFrame
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    return appDelegate.window.frame;
 }
 
 #pragma mark -

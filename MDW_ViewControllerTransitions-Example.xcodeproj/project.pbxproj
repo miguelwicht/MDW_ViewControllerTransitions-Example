@@ -39,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		491F12A519B6309900485BA0 /* ViewControllerTransitioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerTransitioning.h; sourceTree = "<group>"; };
+		491F12A619B635B100485BA0 /* MDWAnimatorTransitionStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDWAnimatorTransitionStyle.h; sourceTree = "<group>"; };
 		49258BDF19B3A61A002A0E00 /* MDW_ViewControllerTransitions-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MDW_ViewControllerTransitions-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49258BE219B3A61A002A0E00 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49258BE419B3A61A002A0E00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +135,8 @@
 				49258C2819B3A728002A0E00 /* ViewControllers */,
 				49258BF419B3A61A002A0E00 /* Images.xcassets */,
 				49258BE919B3A61A002A0E00 /* Supporting Files */,
+				491F12A519B6309900485BA0 /* ViewControllerTransitioning.h */,
+				491F12A619B635B100485BA0 /* MDWAnimatorTransitionStyle.h */,
 			);
 			path = "MDW_ViewControllerTransitions-Example";
 			sourceTree = "<group>";
@@ -505,6 +509,7 @@
 				49258C0D19B3A61A002A0E00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49258C0E19B3A61A002A0E00 /* Build configuration list for PBXNativeTarget "MDW_ViewControllerTransitions-ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				49258C1019B3A61A002A0E00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

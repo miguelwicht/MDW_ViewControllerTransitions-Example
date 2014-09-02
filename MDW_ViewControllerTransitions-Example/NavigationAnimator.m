@@ -18,23 +18,23 @@
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    UIViewController<ViewControllerTransitioning> *toViewController = (UIViewController<ViewControllerTransitioning>*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController<ViewControllerTransitioning> *fromViewController = (UIViewController<ViewControllerTransitioning>*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
     if (self.isPushed)
     {
-        [self pushWithTransitionStyle:self.transitionStyle andTransitionContext:transitionContext];
+        [self pushWithTransitionStyle:toViewController.pushTransitionStyle andTransitionContext:transitionContext];
     }
     else
     {
-        [self popWithTransitionStyle:self.transitionStyle andTransitionContext:transitionContext];
+        [self popWithTransitionStyle:fromViewController.popTransitionStyle andTransitionContext:transitionContext];
     }
 }
 
 - (void)pushWithTransitionStyle:(MDWAnimatorTransitionStyle)transitionStyle andTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    UIViewController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIViewController* fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    CGRect appFrame = appDelegate.window.frame;
+    UIViewController<ViewControllerTransitioning> *toViewController = (UIViewController<ViewControllerTransitioning>*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController<ViewControllerTransitioning> *fromViewController = (UIViewController<ViewControllerTransitioning>*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     switch (transitionStyle)
     {
@@ -44,9 +44,9 @@
             [transitionContext.containerView addSubview:fromViewController.view];
             [transitionContext.containerView addSubview:toViewController.view];
             
-            CGRect endFrame = appFrame;
+            CGRect endFrame = toViewController.containerFrame;
             CGRect startFrame = endFrame;
-            startFrame.origin.y -= appFrame.size.height;
+            startFrame.origin.y -= endFrame.size.height;
             
             toViewController.view.frame = startFrame;
             
@@ -64,9 +64,9 @@
             [transitionContext.containerView addSubview:fromViewController.view];
             [transitionContext.containerView addSubview:toViewController.view];
             
-            CGRect endFrame = appFrame;
+            CGRect endFrame = toViewController.containerFrame;
             CGRect startFrame = endFrame;
-            startFrame.origin.x += appFrame.size.width;
+            startFrame.origin.x += toViewController.containerFrame.size.width;
             
             toViewController.view.frame = startFrame;
             
@@ -87,11 +87,8 @@
 
 - (void)popWithTransitionStyle:(MDWAnimatorTransitionStyle)transitionStyle andTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    UIViewController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIViewController* fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    CGRect appFrame = appDelegate.window.frame;
+    UIViewController<ViewControllerTransitioning> *toViewController = (UIViewController<ViewControllerTransitioning>*)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController<ViewControllerTransitioning> *fromViewController = (UIViewController<ViewControllerTransitioning>*)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     switch (transitionStyle)
     {
@@ -102,8 +99,8 @@
             [transitionContext.containerView addSubview:toViewController.view];
             [transitionContext.containerView addSubview:fromViewController.view];
             
-            CGRect endFrame = appFrame;
-            endFrame.origin.y -= appFrame.size.height;
+            CGRect endFrame = fromViewController.containerFrame;
+            endFrame.origin.y -= fromViewController.containerFrame.size.height;
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                 fromViewController.view.frame = endFrame;
@@ -120,8 +117,8 @@
             [transitionContext.containerView addSubview:toViewController.view];
             [transitionContext.containerView addSubview:fromViewController.view];
             
-            CGRect endFrame = appFrame;
-            endFrame.origin.x += appFrame.size.width;
+            CGRect endFrame = fromViewController.containerFrame;
+            endFrame.origin.x += fromViewController.containerFrame.size.width;
             
             [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
                 fromViewController.view.frame = endFrame;

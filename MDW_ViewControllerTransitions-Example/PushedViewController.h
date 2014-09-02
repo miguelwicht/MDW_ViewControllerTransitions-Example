@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationAnimator.h"
+#import "ViewControllerTransitioning.h"
 
-@interface PushedViewController : UIViewController
+@interface PushedViewController : UIViewController <ViewControllerTransitioning>
 
 @property (nonatomic, strong) UIButton *popViewControllerButton;
 @property (nonatomic) MDWAnimatorTransitionStyle pushTransitionStyle;

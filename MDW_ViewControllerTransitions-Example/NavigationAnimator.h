@@ -7,18 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSInteger, MDWAnimatorTransitionStyle)
-{
-    MDWAnimatorTransitionStyleSlideInFromTop = 0,
-    MDWAnimatorTransitionStyleSlideOutToTop,
-    MDWAnimatorTransitionStyleSlideInFromRight,
-    MDWAnimatorTransitionStyleSlideOutToRight,
-};
+#import "ViewControllerTransitioning.h"
+#import "MDWAnimatorTransitionStyle.h"
 
 @interface NavigationAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic) BOOL isPushed;
-@property (nonatomic) MDWAnimatorTransitionStyle transitionStyle;
 
 @end
