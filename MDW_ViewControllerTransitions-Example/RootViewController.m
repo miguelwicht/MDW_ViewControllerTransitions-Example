@@ -69,9 +69,15 @@
     if (sender == self.presentViewControllerButton)
     {
         PresentedViewController *viewController = [[PresentedViewController alloc] initWithNibName:nil bundle:nil];
-        [viewController.view setFrame:CGRectMake(50, 100, 320, self.view.frame.size.height - 200)];
         viewController.transitioningDelegate = self.transitioningDelegate;
         viewController.modalPresentationStyle = UIModalPresentationCustom;
+        viewController.appearingTransitionStyle = MDWAnimatorTransitionStyleSlideInFromTop;
+        viewController.disappearingTransitionStyle = MDWAnimatorTransitionStyleSlideOutToTop;
+        
+        // set frame and save it to property as well because frame.size might not be available in animator
+        [viewController.view setFrame:CGRectMake(50, 100, 320 - 100, self.view.frame.size.height - 200)];
+        viewController.finalFrame = viewController.view.frame;
+        
         [self presentViewController:viewController animated:YES completion:nil];
     }
     else if (sender == self.pushViewControllerButton)
@@ -82,8 +88,8 @@
     else if (sender == self.pushFromTopViewControllerButton)
     {
         PushedViewController *viewController = [[PushedViewController alloc] initWithNibName:nil bundle:nil];
-        viewController.pushTransitionStyle = MDWAnimatorTransitionStyleSlideInFromTop;
-        viewController.popTransitionStyle = MDWAnimatorTransitionStyleSlideOutToTop;
+        viewController.appearingTransitionStyle = MDWAnimatorTransitionStyleSlideInFromTop;
+        viewController.disappearingTransitionStyle = MDWAnimatorTransitionStyleSlideOutToTop;
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }

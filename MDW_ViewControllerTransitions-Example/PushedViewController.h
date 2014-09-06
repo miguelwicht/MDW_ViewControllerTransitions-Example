@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NavigationAnimator.h"
 #import "ViewControllerTransitioning.h"
 
 @interface PushedViewController : UIViewController <ViewControllerTransitioning>
 
 @property (nonatomic, strong) UIButton *popViewControllerButton;
-@property (nonatomic) MDWAnimatorTransitionStyle pushTransitionStyle;
-@property (nonatomic) MDWAnimatorTransitionStyle popTransitionStyle;
+@property (nonatomic) MDWAnimatorTransitionStyle appearingTransitionStyle;
+@property (nonatomic) MDWAnimatorTransitionStyle disappearingTransitionStyle;
+@property (nonatomic) CGRect finalFrame;
 
 @end

@@ -19,13 +19,13 @@
 		49258BFE19B3A61A002A0E00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49258BE619B3A61A002A0E00 /* UIKit.framework */; };
 		49258C0619B3A61A002A0E00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49258C0419B3A61A002A0E00 /* InfoPlist.strings */; };
 		49258C0819B3A61A002A0E00 /* MDW_ViewControllerTransitions_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C0719B3A61A002A0E00 /* MDW_ViewControllerTransitions_ExampleTests.m */; };
-		49258C1F19B3A64F002A0E00 /* NavigationAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1219B3A64F002A0E00 /* NavigationAnimator.m */; };
+		49258C1F19B3A64F002A0E00 /* MDWSlideTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1219B3A64F002A0E00 /* MDWSlideTransitionAnimator.m */; };
 		49258C2019B3A64F002A0E00 /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1419B3A64F002A0E00 /* NavigationControllerDelegate.m */; };
 		49258C2119B3A64F002A0E00 /* PresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1619B3A64F002A0E00 /* PresentedViewController.m */; };
 		49258C2219B3A64F002A0E00 /* PushedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1819B3A64F002A0E00 /* PushedViewController.m */; };
 		49258C2319B3A64F002A0E00 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1A19B3A64F002A0E00 /* RootViewController.m */; };
-		49258C2419B3A64F002A0E00 /* TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1C19B3A64F002A0E00 /* TransitionAnimator.m */; };
 		49258C2519B3A64F002A0E00 /* TransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49258C1E19B3A64F002A0E00 /* TransitioningDelegate.m */; };
+		494D6E9D19BB5070001DAD71 /* MDWBaseTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D6E9C19BB5070001DAD71 /* MDWBaseTransitionAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		49258C0319B3A61A002A0E00 /* MDW_ViewControllerTransitions-ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MDW_ViewControllerTransitions-ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		49258C0519B3A61A002A0E00 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49258C0719B3A61A002A0E00 /* MDW_ViewControllerTransitions_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDW_ViewControllerTransitions_ExampleTests.m; sourceTree = "<group>"; };
-		49258C1119B3A64F002A0E00 /* NavigationAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationAnimator.h; sourceTree = "<group>"; };
-		49258C1219B3A64F002A0E00 /* NavigationAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationAnimator.m; sourceTree = "<group>"; };
+		49258C1119B3A64F002A0E00 /* MDWSlideTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDWSlideTransitionAnimator.h; sourceTree = "<group>"; };
+		49258C1219B3A64F002A0E00 /* MDWSlideTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDWSlideTransitionAnimator.m; sourceTree = "<group>"; };
 		49258C1319B3A64F002A0E00 /* NavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControllerDelegate.h; sourceTree = "<group>"; };
 		49258C1419B3A64F002A0E00 /* NavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerDelegate.m; sourceTree = "<group>"; };
 		49258C1519B3A64F002A0E00 /* PresentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentedViewController.h; sourceTree = "<group>"; };
@@ -67,10 +67,10 @@
 		49258C1819B3A64F002A0E00 /* PushedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushedViewController.m; sourceTree = "<group>"; };
 		49258C1919B3A64F002A0E00 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		49258C1A19B3A64F002A0E00 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		49258C1B19B3A64F002A0E00 /* TransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionAnimator.h; sourceTree = "<group>"; };
-		49258C1C19B3A64F002A0E00 /* TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimator.m; sourceTree = "<group>"; };
 		49258C1D19B3A64F002A0E00 /* TransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitioningDelegate.h; sourceTree = "<group>"; };
 		49258C1E19B3A64F002A0E00 /* TransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitioningDelegate.m; sourceTree = "<group>"; };
+		494D6E9B19BB5070001DAD71 /* MDWBaseTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDWBaseTransitionAnimator.h; sourceTree = "<group>"; };
+		494D6E9C19BB5070001DAD71 /* MDWBaseTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDWBaseTransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 		49258BE819B3A61A002A0E00 /* MDW_ViewControllerTransitions-Example */ = {
 			isa = PBXGroup;
 			children = (
-				49258C2619B3A70E002A0E00 /* Animators */,
+				49258C2619B3A70E002A0E00 /* Animator */,
 				49258C2719B3A716002A0E00 /* Delegates */,
 				49258C2819B3A728002A0E00 /* ViewControllers */,
 				49258BF419B3A61A002A0E00 /* Images.xcassets */,
@@ -170,15 +170,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		49258C2619B3A70E002A0E00 /* Animators */ = {
+		49258C2619B3A70E002A0E00 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
-				49258C1119B3A64F002A0E00 /* NavigationAnimator.h */,
-				49258C1219B3A64F002A0E00 /* NavigationAnimator.m */,
-				49258C1B19B3A64F002A0E00 /* TransitionAnimator.h */,
-				49258C1C19B3A64F002A0E00 /* TransitionAnimator.m */,
+				49258C1119B3A64F002A0E00 /* MDWSlideTransitionAnimator.h */,
+				49258C1219B3A64F002A0E00 /* MDWSlideTransitionAnimator.m */,
+				494D6E9B19BB5070001DAD71 /* MDWBaseTransitionAnimator.h */,
+				494D6E9C19BB5070001DAD71 /* MDWBaseTransitionAnimator.m */,
 			);
-			name = Animators;
+			name = Animator;
 			sourceTree = "<group>";
 		};
 		49258C2719B3A716002A0E00 /* Delegates */ = {
@@ -305,10 +305,10 @@
 				49258C2019B3A64F002A0E00 /* NavigationControllerDelegate.m in Sources */,
 				49258C2319B3A64F002A0E00 /* RootViewController.m in Sources */,
 				49258C2119B3A64F002A0E00 /* PresentedViewController.m in Sources */,
-				49258C1F19B3A64F002A0E00 /* NavigationAnimator.m in Sources */,
+				49258C1F19B3A64F002A0E00 /* MDWSlideTransitionAnimator.m in Sources */,
 				49258BF319B3A61A002A0E00 /* AppDelegate.m in Sources */,
-				49258C2419B3A64F002A0E00 /* TransitionAnimator.m in Sources */,
 				49258C2519B3A64F002A0E00 /* TransitioningDelegate.m in Sources */,
+				494D6E9D19BB5070001DAD71 /* MDWBaseTransitionAnimator.m in Sources */,
 				49258BEF19B3A61A002A0E00 /* main.m in Sources */,
 				49258C2219B3A64F002A0E00 /* PushedViewController.m in Sources */,
 			);

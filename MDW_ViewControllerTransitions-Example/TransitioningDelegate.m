@@ -7,7 +7,7 @@
 //
 
 #import "TransitioningDelegate.h"
-#import "TransitionAnimator.h"
+#import "MDWSlideTransitionAnimator.h"
 
 @implementation TransitioningDelegate
 
@@ -15,15 +15,15 @@
                                                                   presentingController:(UIViewController *)presenting
                                                                       sourceController:(UIViewController *)source
 {
-    TransitionAnimator *animator = [TransitionAnimator new];
-    animator.presenting = YES;
+    MDWSlideTransitionAnimator *animator = [MDWSlideTransitionAnimator new];
+    animator.appearing = YES;
     
     return animator;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
-    TransitionAnimator *animator = [TransitionAnimator new];
+    MDWSlideTransitionAnimator *animator = [MDWSlideTransitionAnimator new];
     
     return animator;
 }

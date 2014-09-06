@@ -11,9 +11,9 @@
 
 @protocol ViewControllerTransitioning <NSObject>
 
-@property (nonatomic) MDWAnimatorTransitionStyle pushTransitionStyle;
-@property (nonatomic) MDWAnimatorTransitionStyle popTransitionStyle;
+@property (nonatomic) MDWAnimatorTransitionStyle appearingTransitionStyle;
+@property (nonatomic) MDWAnimatorTransitionStyle disappearingTransitionStyle;
 
-@property (nonatomic) CGRect containerFrame;
+@property (nonatomic) CGRect finalFrame;
 
 @end

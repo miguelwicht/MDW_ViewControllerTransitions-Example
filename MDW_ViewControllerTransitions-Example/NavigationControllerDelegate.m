@@ -7,7 +7,7 @@
 //
 
 #import "NavigationControllerDelegate.h"
-#import "NavigationAnimator.h"
+#import "MDWSlideTransitionAnimator.h"
 #import "PushedViewController.h"
 
 @implementation NavigationControllerDelegate
@@ -16,15 +16,15 @@
 {
     if (operation == UINavigationControllerOperationPush)
     {
-        NavigationAnimator *animator = [NavigationAnimator new];
-        animator.isPushed = YES;
+        MDWSlideTransitionAnimator *animator = [MDWSlideTransitionAnimator new];
+        animator.appearing = YES;
         
         return animator;
     }
     
     if (operation == UINavigationControllerOperationPop)
     {
-        NavigationAnimator *animator = [NavigationAnimator new];
+        MDWSlideTransitionAnimator *animator = [MDWSlideTransitionAnimator new];
         
         return animator;
     }

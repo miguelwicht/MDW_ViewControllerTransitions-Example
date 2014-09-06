@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewControllerTransitioning.h"
 
-@interface PresentedViewController : UIViewController
+@interface PresentedViewController : UIViewController <ViewControllerTransitioning>
+
+@property (nonatomic) MDWAnimatorTransitionStyle appearingTransitionStyle;
+@property (nonatomic) MDWAnimatorTransitionStyle disappearingTransitionStyle;
+@property (nonatomic) CGRect finalFrame;
 
 @property (nonatomic, strong) UIButton *dismissViewControllerButton;
 
