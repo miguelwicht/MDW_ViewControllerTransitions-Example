@@ -49,6 +49,27 @@
     originFrame.size.height = endFrame.size.height;
     toViewController.view.frame = originFrame;
     
+    // animate fromViewController
+    CGRect fromViewEndFrame = fromViewController.view.frame;
+    
+    switch ([fromViewController.transitionCoordinator presentationStyle])
+    {
+        case UIModalPresentationNone:
+        {
+            fromViewEndFrame = [self getOffsetRectForRect:fromViewEndFrame andTransitionStyle:transitionStyle];
+            fromViewEndFrame.origin.x *= -1;
+            fromViewEndFrame.origin.y *= -1;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    [[fromViewController transitionCoordinator] animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+		fromViewController.view.frame = fromViewEndFrame;
+	
+    } completion:NULL];
+    
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         toViewController.view.frame = endFrame;
     } completion:^(BOOL finished) {
@@ -76,6 +97,30 @@
     endFrame.origin.y += originFrame.origin.y;
     endFrame.size.width = originFrame.size.width;
     endFrame.size.height = originFrame.size.height;
+    
+    // animate toViewController
+    CGRect toViewEndFrame = toViewController.view.frame;
+    CGRect toViewStartFrame = toViewEndFrame;
+    switch ([toViewController.transitionCoordinator presentationStyle])
+    {
+        case UIModalPresentationNone:
+        {
+            toViewStartFrame = [self getOffsetRectForRect:toViewStartFrame andTransitionStyle:transitionStyle];
+            toViewStartFrame.origin.x *= -1;
+            toViewStartFrame.origin.y *= -1;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    toViewController.view.frame = toViewStartFrame;
+    
+    [[toViewController transitionCoordinator] animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+		toViewController.view.frame = toViewEndFrame;
+        
+    } completion:NULL];
+    
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         fromViewController.view.frame = endFrame;

@@ -33,6 +33,12 @@
     [self initButtons];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+    
+	
+}
+
 - (void)initTransitioningDeleagte
 {
     self.transitioningDelegate = [[TransitioningDelegate alloc] init];
