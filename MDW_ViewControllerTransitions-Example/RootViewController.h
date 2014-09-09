@@ -12,6 +12,7 @@
 @interface RootViewController : UIViewController
 
 @property (nonatomic, strong) UIButton *presentViewControllerButton;
+@property (nonatomic, strong) UIButton *presentFromRightViewControllerButton;
 @property (nonatomic, strong) UIButton *pushViewControllerButton;
 @property (nonatomic, strong) UIButton *pushFromTopViewControllerButton;
 @property (nonatomic, strong) TransitioningDelegate *transitioningDelegate;

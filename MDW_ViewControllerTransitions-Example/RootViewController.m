@@ -49,13 +49,21 @@
     self.presentViewControllerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.presentViewControllerButton setFrame:CGRectMake(0, 100, self.view.frame.size.width, 40)];
     [self.presentViewControllerButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
-    [self.presentViewControllerButton setTitle:@"Present ViewController" forState:UIControlStateNormal];
+    [self.presentViewControllerButton setTitle:@"Present from top" forState:UIControlStateNormal];
     [self.presentViewControllerButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.presentViewControllerButton];
     
     
+    self.presentFromRightViewControllerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.presentFromRightViewControllerButton setFrame:CGRectMake(0, 141, self.view.frame.size.width, 40)];
+    [self.presentFromRightViewControllerButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
+    [self.presentFromRightViewControllerButton setTitle:@"Present from right" forState:UIControlStateNormal];
+    [self.presentFromRightViewControllerButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.presentFromRightViewControllerButton];
+    
+    
     self.pushViewControllerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.pushViewControllerButton setFrame:CGRectMake(0, 141, self.view.frame.size.width, 40)];
+    [self.pushViewControllerButton setFrame:CGRectMake(0, 182, self.view.frame.size.width, 40)];
     [self.pushViewControllerButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
     [self.pushViewControllerButton setTitle:@"Push from right" forState:UIControlStateNormal];
     [self.pushViewControllerButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -63,7 +71,7 @@
     
     
     self.pushFromTopViewControllerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.pushFromTopViewControllerButton setFrame:CGRectMake(0, 182, self.view.frame.size.width, 40)];
+    [self.pushFromTopViewControllerButton setFrame:CGRectMake(0, 223, self.view.frame.size.width, 40)];
     [self.pushFromTopViewControllerButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
     [self.pushFromTopViewControllerButton setTitle:@"Push from top" forState:UIControlStateNormal];
     [self.pushFromTopViewControllerButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -79,6 +87,20 @@
         viewController.modalPresentationStyle = UIModalPresentationCustom;
         viewController.appearingTransitionStyle = MDWAnimatorTransitionStyleSlideInFromTop;
         viewController.disappearingTransitionStyle = MDWAnimatorTransitionStyleSlideOutToTop;
+        
+        // set frame and save it to property as well because frame.size might not be available in animator
+        [viewController.view setFrame:CGRectMake(50, 100, 320 - 100, self.view.frame.size.height - 200)];
+        viewController.finalFrame = viewController.view.frame;
+        
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    else if (sender == self.presentFromRightViewControllerButton)
+    {
+        PresentedViewController *viewController = [[PresentedViewController alloc] initWithNibName:nil bundle:nil];
+        viewController.transitioningDelegate = self.transitioningDelegate;
+        viewController.modalPresentationStyle = UIModalPresentationCustom;
+        viewController.appearingTransitionStyle = MDWAnimatorTransitionStyleSlideInFromRight;
+        viewController.disappearingTransitionStyle = MDWAnimatorTransitionStyleSlideOutToRight;
         
         // set frame and save it to property as well because frame.size might not be available in animator
         [viewController.view setFrame:CGRectMake(50, 100, 320 - 100, self.view.frame.size.height - 200)];
