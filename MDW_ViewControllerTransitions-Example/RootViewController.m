@@ -89,7 +89,7 @@
         viewController.disappearingTransitionStyle = MDWAnimatorTransitionStyleSlideOutToTop;
         
         // set frame and save it to property as well because frame.size might not be available in animator
-        [viewController.view setFrame:CGRectMake(50, 100, 320 - 100, self.view.frame.size.height - 200)];
+        [viewController.view setFrame:CGRectMake(50, 100, self.view.frame.size.width - 100, self.view.frame.size.height - 200)];
         viewController.finalFrame = viewController.view.frame;
         
         [self presentViewController:viewController animated:YES completion:nil];
